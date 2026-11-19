@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # distrovanta.sh - DISTROVANTA entry point.
 # Universal Linux Terminal Customizer
+# Copyright (C) 2026 Brian Lewis (BRJ Dev)
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
 # Created by Brian Lewis • BRJ Dev (discrete partner)
 
 set -u

@@ -8,11 +8,24 @@
 - Commercial use: depends on license.
 - Authorship preservation: requested.
 
-## License options (choose one)
+## Selected License
 
-1. MIT - permissive, allows commercial use and modification with attribution.
-2. Apache-2.0 - permissive with patent grant.
-3. GPL-3.0 - copyleft; derivatives must be open source under same license.
-4. Proprietary/All rights reserved - no redistribution/modification without permission.
+DISTROVANTA is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
+The full text is in `LICENSE`. See `ATTRIBUTION.md` for attribution requirements.
 
-Consequences must be understood before selecting. Update LICENSE accordingly.
+### What this means
+
+- Use, study, modify, and redistribute are allowed.
+- Modified/derived works must be licensed under GPL-3.0.
+- Source code must be made available when distributing non-source forms.
+- Original copyright and attribution notices must be preserved.
+- No additional restrictions beyond those permitted by GPL-3.0 may be imposed.
+
+### Modification and Redistribution Policy
+
+- Personalization via the interface is supported and does not change the license.
+- Source code modification is allowed and encouraged.
+- Redistribution of modified versions is allowed under GPL-3.0.
+- Commercial use is allowed under GPL-3.0 terms.
+- Original authorship (Brian Lewis / BRJ Dev) must be preserved.
+- Modifiers may add their own credits without removing original attribution.

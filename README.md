@@ -54,7 +54,23 @@ See project tree in `docs/`.
 
 ## License
 
-License choice pending. See `POLICIES.md` for options and consequences.
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
+See `LICENSE` for the full text.
+
+## Credits and Attribution
+
+- **Original creator:** Brian Lewis
+- **Partner:** BRJ Dev
+- **Official GitHub:** https://github.com/brianlewis-png
+- **Official Website:** https://brianlewisdev.netlify.app
+- **LinkedIn:** https://linkedin.com/in/brian-lewis-4ba63739a
+- **Telegram:** https://t.me/brianlewisdev
+- **Instagram:** https://www.instagram.com/Brian_lewis_2
+- **X (Twitter):** https://x.com/brianlewisdev
+- **YouTube:** https://www.youtube.com/@brianlewisdeveloper
+
+Redistribution and modification are allowed under GPL-3.0, provided original
+copyright and attribution notices are preserved. See `ATTRIBUTION.md`.
 
 ## Credits
 

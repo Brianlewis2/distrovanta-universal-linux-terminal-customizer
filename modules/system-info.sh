@@ -45,7 +45,10 @@ dv_system_info_menu() {
                     printf '%s\n' "$DV_MARKER_END"
                 } >>"$rc"
                 dv_setting_set "SYSTEM_INFO_ENABLED" "1"
-                dv_ok "Applied."; dv_pause ;;
+                dv_ensure_bashrc_sourced
+                dv_ok "Applied."
+                dv_info "Open a new terminal or run: source $rc"
+                dv_pause ;;
             4)
                 [ -f "${HOME}/.bashrc" ] && dv_restore_strip_block "${HOME}/.bashrc" && dv_ok "Removed."
                 dv_pause ;;

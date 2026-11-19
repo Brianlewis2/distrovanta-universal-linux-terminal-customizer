@@ -51,7 +51,9 @@ dv_panel_apply() {
     fi
     dv_panel_build >>"$rc"
     dv_setting_set "PANEL_ENABLED" "1"
+    dv_ensure_bashrc_sourced
     dv_ok "Panel applied to $rc"
+    dv_info "Open a new terminal or run: source $rc"
 }
 
 dv_panel_menu() {

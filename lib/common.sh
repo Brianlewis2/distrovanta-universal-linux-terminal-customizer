@@ -158,6 +158,22 @@ dv_path_safe() {
     return 0
 }
 
+# ---- Ensure .bashrc is sourced by login shells ------------------------------
+dv_ensure_bashrc_sourced() {
+    local f=""
+    if [ -f "${HOME}/.bash_profile" ]; then f="${HOME}/.bash_profile"
+    elif [ -f "${HOME}/.bash_login" ]; then f="${HOME}/.bash_login"
+    elif [ -f "${HOME}/.profile" ]; then f="${HOME}/.profile"
+    else f="${HOME}/.bash_profile"
+    fi
+    if ! grep -qE 'bashrc' "$f" 2>/dev/null; then
+        {
+            printf '\n# Source .bashrc for DISTROVANTA settings\n'
+            printf '[ -f ~/.bashrc ] && . ~/.bashrc\n'
+        } >>"$f"
+    fi
+}
+
 # ---- State init --------------------------------------------------------------
 dv_state_init() {
     mkdir -p "${DISTROVANTA_STATE_DIR}" "${DISTROVANTA_BACKUP_DIR}" 2>/dev/null

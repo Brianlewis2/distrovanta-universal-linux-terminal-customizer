@@ -5,67 +5,60 @@
 
 # ---- Banner -----------------------------------------------------------------
 dv_banner() {
-    # Build lines, then center each dynamically.
-    local lines=()
-    lines+=("DISTROVANTA")
-    lines+=("UNIVERSAL LINUX TERMINAL CUSTOMIZER")
-    lines+=("")
-    lines+=("Created by Brian Lewis")
-    lines+=("Full Stack Developer • AI Engineer")
-    lines+=("")
-    lines+=("BRJ Dev Partnership")
+    local w cw margin
+    w="$(dv_term_width)"
+    cw=60
+    [ "$w" -lt "$cw" ] && cw="$w"
+    [ "$cw" -lt 20 ] && cw=20
+    margin=$(( (w - cw) / 2 ))
+    [ "$margin" -lt 0 ] && margin=0
 
-    # Top/bottom border width based on terminal
-    local width
-    width="$(dv_term_width)"
     local border=""
     local i
-    for ((i=0;i<width && i<60;i++)); do border="${border}─"; done
-    [ "$width" -gt 60 ] && border="${border:0:60}"
+    for ((i=0;i<cw;i++)); do border="${border}─"; done
 
-    printf '\n'
-    dv_center "${DV_COLOR_BLUE}${DV_COLOR_BOLD}${border}${DV_COLOR_RESET}"
-    for l in "${lines[@]}"; do
-        case "$l" in
-            "DISTROVANTA")
-                dv_center "${DV_COLOR_LIGHTBLUE}${DV_COLOR_BOLD}${l}${DV_COLOR_RESET}" ;;
-            "UNIVERSAL LINUX TERMINAL CUSTOMIZER")
-                dv_center "${DV_COLOR_WHITE}${DV_COLOR_BOLD}${l}${DV_COLOR_RESET}" ;;
-            "Created by Brian Lewis")
-                dv_center "${DV_COLOR_WHITE}${l}${DV_COLOR_RESET}" ;;
-            "Full Stack Developer • AI Engineer")
-                dv_center "${DV_COLOR_GRAY}${l}${DV_COLOR_RESET}" ;;
-            "BRJ Dev Partnership")
-                dv_center "${DV_COLOR_DIM}${DV_COLOR_GRAY}${l}${DV_COLOR_RESET}" ;;
-            "")
-                printf '\n' ;;
-            *)
-                dv_center "${DV_COLOR_WHITE}${l}${DV_COLOR_RESET}" ;;
-        esac
-    done
-    dv_center "${DV_COLOR_BLUE}${DV_COLOR_BOLD}${border}${DV_COLOR_RESET}"
+    local print_line
+    print_line() {
+        # $1 text, $2 color/style prefix, $3 suffix(reset)
+        local text="$1" pre="$2" suf="$3"
+        local plain
+        plain="$(printf '%s' "$text" | sed 's/\x1b\[[0-9;]*m//g')"
+        local len=${#plain}
+        local left=$(( (cw - len) / 2 ))
+        [ "$left" -lt 0 ] && left=0
+        printf '%*s%*s%b%s%b\n' "$margin" '' "$left" '' "$pre" "$text" "$suf"
+    }
+
+    printf '%*s%b%s%b\n' "$margin" '' "${DV_COLOR_BLUE}" "${DV_COLOR_BOLD}${border}" "${DV_COLOR_RESET}"
+    print_line "DISTROVANTA" "${DV_COLOR_LIGHTBLUE}${DV_COLOR_BOLD}" "${DV_COLOR_RESET}"
+    print_line "UNIVERSAL LINUX TERMINAL CUSTOMIZER" "${DV_COLOR_WHITE}${DV_COLOR_BOLD}" "${DV_COLOR_RESET}"
+    printf '%*s\n' "$margin" ''
+    print_line "Created by Brian Lewis" "${DV_COLOR_WHITE}" "${DV_COLOR_RESET}"
+    print_line "Full Stack Developer • AI Engineer" "${DV_COLOR_GRAY}" "${DV_COLOR_RESET}"
+    printf '%*s\n' "$margin" ''
+    print_line "BRJ Dev Partnership" "${DV_COLOR_DIM}${DV_COLOR_GRAY}" "${DV_COLOR_RESET}"
+    printf '%*s%b%s%b\n' "$margin" '' "${DV_COLOR_BLUE}" "${DV_COLOR_BOLD}${border}" "${DV_COLOR_RESET}"
     printf '\n'
 }
 
 # ---- Menu helpers -----------------------------------------------------------
 dv_menu_header() {
     dv_banner
-    printf '%s\n' "MAIN MENU"
-    printf '%s\n' "Select an option by number."
-    printf '\n'
+    printf '  %bMAIN MENU%b\n' "${DV_COLOR_BOLD}" "${DV_COLOR_RESET}"
+    printf '  %s\n\n' "Select an option by number."
 }
 
 dv_menu_item() {
     # $1 number, $2 title, $3 description
     local num="$1" title="$2" desc="$3"
     printf '  %b[%s]%b %b%s%b\n' "${DV_COLOR_BLUE}" "$num" "${DV_COLOR_RESET}" "${DV_COLOR_BOLD}" "$title" "${DV_COLOR_RESET}"
-    printf '      %s\n' "$desc"
+    printf '       %b%s%b\n' "${DV_COLOR_GRAY}" "$desc" "${DV_COLOR_RESET}"
 }
 
 dv_pause() {
-    printf '\nPress Enter to continue...'
-    # shellcheck disable=SC2034
+    printf '\n%bPress Enter to continue...%b' "${DV_COLOR_GRAY}" "${DV_COLOR_RESET}"
     IFS= read -r _ || true
+    printf '\n'
 }
 
 dv_clear() {
@@ -78,7 +71,6 @@ dv_clear() {
 
 # ---- Yes/No confirm ---------------------------------------------------------
 dv_confirm() {
-    # $1 prompt. Returns 0 for yes.
     local prompt="${1:-Continue? [y/N]: }"
     local ans
     dv_read ans "$prompt"
@@ -90,7 +82,6 @@ dv_confirm() {
 
 # ---- Input validation helpers ----------------------------------------------
 dv_read_validated() {
-    # $1 varname, $2 prompt, $3 validator function name (optional)
     local varname="$1"; shift
     local prompt="$1"; shift
     local validator="${1:-}"
@@ -98,7 +89,6 @@ dv_read_validated() {
     while true; do
         dv_read val "$prompt"
         if [ -z "$validator" ]; then
-            # shellcheck disable=SC2034
             printf -v "$varname" '%s' "$val"
             return 0
         fi

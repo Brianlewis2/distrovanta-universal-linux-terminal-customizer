@@ -65,6 +65,7 @@ dv_prompt_apply() {
         printf '%s\n' "$DV_MARKER_END"
     } >>"$rc"
     dv_setting_set "DISTROVANTA_ENABLED" "1"
+    dv_ensure_bashrc_sourced
     dv_ok "Prompt customization applied to $rc"
     dv_info "Open a new terminal or run: source $rc"
 }

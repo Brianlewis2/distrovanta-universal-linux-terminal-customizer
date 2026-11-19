@@ -120,12 +120,12 @@ No root privileges are required for common user personalization.
 
 Baixe diretamente sem Git:
 
-https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer/archive/refs/heads/main.zip
+https://github.com/brianlewislife-png/distrovanta-universal-linux-terminal-customizer/archive/refs/heads/main.zip
 
 Ou via curl:
 
 ```sh
-curl -L -o distrovanta.zip https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer/archive/refs/heads/main.zip
+curl -L -o distrovanta.zip https://github.com/brianlewislife-png/distrovanta-universal-linux-terminal-customizer/archive/refs/heads/main.zip
 unzip distrovanta.zip
 cd distrovanta-universal-linux-terminal-customizer-main
 chmod +x distrovanta.sh
@@ -135,7 +135,7 @@ chmod +x distrovanta.sh
 ### Standard (Git)
 
 ```sh
-git clone https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer.git
+git clone https://github.com/brianlewislife-png/distrovanta-universal-linux-terminal-customizer.git
 cd distrovanta-universal-linux-terminal-customizer
 chmod +x distrovanta.sh install.sh
 ./install.sh
@@ -146,7 +146,7 @@ chmod +x distrovanta.sh install.sh
 
 ```sh
 pkg install bash coreutils
-git clone https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer.git
+git clone https://github.com/brianlewislife-png/distrovanta-universal-linux-terminal-customizer.git
 cd distrovanta-universal-linux-terminal-customizer
 chmod +x distrovanta.sh
 ./distrovanta.sh

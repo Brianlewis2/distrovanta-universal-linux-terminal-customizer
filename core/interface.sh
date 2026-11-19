@@ -5,12 +5,7 @@
 
 # ---- Banner -----------------------------------------------------------------
 dv_banner() {
-    local w margin
-    w="$(dv_term_width)"
-    margin=$(( (w - 12) / 2 ))
-    [ "$margin" -lt 0 ] && margin=0
-    printf "%*s%s\n" "$margin" "" "DISTROVANTA"
-    printf '\n'
+    : # header removed per user request; show only menu options
 }
 
 # ---- Menu helpers -----------------------------------------------------------

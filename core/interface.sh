@@ -30,7 +30,7 @@ dv_banner() {
     }
 
     printf '%*s%b%s%b\n' "$margin" '' "${DV_COLOR_BLUE}" "${DV_COLOR_BOLD}${border}" "${DV_COLOR_RESET}"
-    print_line "DISTROVANTA" "${DV_COLOR_LIGHTBLUE}${DV_COLOR_BOLD}" "${DV_COLOR_RESET}"
+    print_line "D I S T R O V A N T A" "${DV_COLOR_LIGHTBLUE}${DV_COLOR_BOLD}" "${DV_COLOR_RESET}"
     print_line "UNIVERSAL LINUX TERMINAL CUSTOMIZER" "${DV_COLOR_WHITE}${DV_COLOR_BOLD}" "${DV_COLOR_RESET}"
     printf '%*s\n' "$margin" ''
     print_line "Created by Brian Lewis" "${DV_COLOR_WHITE}" "${DV_COLOR_RESET}"

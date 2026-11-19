@@ -60,14 +60,14 @@ distrovanta_color_support() {
 
 # Color variables (empty when no color support).
 if distrovanta_color_support; then
-    DV_COLOR_RESET="\033[0m"
-    DV_COLOR_BLACK="\033[30m"
-    DV_COLOR_BLUE="\033[34m"
-    DV_COLOR_LIGHTBLUE="\033[94m"
-    DV_COLOR_GRAY="\033[90m"
-    DV_COLOR_WHITE="\033[97m"
-    DV_COLOR_BOLD="\033[1m"
-    DV_COLOR_DIM="\033[2m"
+    DV_COLOR_RESET=$'\033[0m'
+    DV_COLOR_BLACK=$'\033[30m'
+    DV_COLOR_BLUE=$'\033[34m'
+    DV_COLOR_LIGHTBLUE=$'\033[94m'
+    DV_COLOR_GRAY=$'\033[90m'
+    DV_COLOR_WHITE=$'\033[97m'
+    DV_COLOR_BOLD=$'\033[1m'
+    DV_COLOR_DIM=$'\033[2m'
 else
     DV_COLOR_RESET=""
     DV_COLOR_BLACK=""

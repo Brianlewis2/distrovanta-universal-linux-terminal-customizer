@@ -35,19 +35,30 @@ dv_system_info_menu() {
                 if [ "$cur" = "1" ]; then dv_setting_set "SYSTEM_INFO_ENABLED" "0"; else dv_setting_set "SYSTEM_INFO_ENABLED" "1"; fi
                 dv_ok "Toggled."; dv_pause ;;
             3)
-                if ! dv_shell_supported_full; then dv_err "Bash only."; dv_pause; continue; fi
-                local rc="${HOME}/.bashrc"
-                [ -f "$rc" ] && dv_backup_file "$rc" "sysinfo_apply" >/dev/null 2>&1 || true
-                dv_restore_strip_block "$rc" >/dev/null 2>&1 || true
-                {
-                    printf '\n%s\n' "$DV_MARKER_BEGIN"
-                    dv_sysinfo_snippet
-                    printf '%s\n' "$DV_MARKER_END"
-                } >>"$rc"
-                dv_setting_set "SYSTEM_INFO_ENABLED" "1"
-                dv_ensure_bashrc_sourced
-                dv_ok "Applied."
-                dv_info "Open a new terminal or run: source $rc"
+                printf '\nPreview:\n'
+                dv_sysinfo_snippet
+                printf '\nApply system info to startup?\n\n'
+                printf '[01] CONFIRM\n[02] CANCEL\n\n'
+                local ans
+                dv_read ans "Choice: "
+                case "$ans" in
+                    01|1)
+                        if ! dv_shell_supported_full; then dv_err "Bash only."; dv_pause; continue; fi
+                        local rc="${HOME}/.bashrc"
+                        [ -f "$rc" ] && dv_backup_file "$rc" "sysinfo_apply" >/dev/null 2>&1 || true
+                        dv_restore_strip_block "$rc" >/dev/null 2>&1 || true
+                        {
+                            printf '\n%s\n' "$DV_MARKER_BEGIN"
+                            dv_sysinfo_snippet
+                            printf '%s\n' "$DV_MARKER_END"
+                        } >>"$rc"
+                        dv_setting_set "SYSTEM_INFO_ENABLED" "1"
+                        dv_ensure_bashrc_sourced
+                        dv_ok "Applied."
+                        dv_info "Open a new terminal or run: source $rc"
+                        ;;
+                    *) dv_info "Cancelled. No changes applied." ;;
+                esac
                 dv_pause ;;
             4)
                 [ -f "${HOME}/.bashrc" ] && dv_restore_strip_block "${HOME}/.bashrc" && dv_ok "Removed."

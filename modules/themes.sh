@@ -21,17 +21,41 @@ dv_themes_menu() {
         dv_read c "Choice: "
         case "$c" in
             1)
-                dv_setting_set "PROMPT_COLOR" "blue"
-                dv_setting_set "PANEL_COLOR" "blue"
-                dv_ok "Ocean theme applied (settings)."; dv_pause ;;
+                printf '\nPreview: prompt=blue, panel=blue\n'
+                printf 'Apply Ocean theme?\n\n[01] CONFIRM\n[02] CANCEL\n\n'
+                local a; dv_read a "Choice: "
+                case "$a" in
+                    01|1)
+                        dv_setting_set "PROMPT_COLOR" "blue"
+                        dv_setting_set "PANEL_COLOR" "blue"
+                        dv_ok "Ocean theme applied (settings)." ;;
+                    *) dv_info "Cancelled." ;;
+                esac
+                dv_pause ;;
             2)
-                dv_setting_set "PROMPT_COLOR" "gray"
-                dv_setting_set "PANEL_COLOR" "white"
-                dv_ok "Mono theme applied."; dv_pause ;;
+                printf '\nPreview: prompt=gray, panel=white\n'
+                printf 'Apply Mono theme?\n\n[01] CONFIRM\n[02] CANCEL\n\n'
+                local a; dv_read a "Choice: "
+                case "$a" in
+                    01|1)
+                        dv_setting_set "PROMPT_COLOR" "gray"
+                        dv_setting_set "PANEL_COLOR" "white"
+                        dv_ok "Mono theme applied." ;;
+                    *) dv_info "Cancelled." ;;
+                esac
+                dv_pause ;;
             3)
-                dv_setting_set "PROMPT_COLOR" "lightblue"
-                dv_setting_set "PANEL_COLOR" "green"
-                dv_ok "Neon theme applied."; dv_pause ;;
+                printf '\nPreview: prompt=lightblue, panel=green\n'
+                printf 'Apply Neon theme?\n\n[01] CONFIRM\n[02] CANCEL\n\n'
+                local a; dv_read a "Choice: "
+                case "$a" in
+                    01|1)
+                        dv_setting_set "PROMPT_COLOR" "lightblue"
+                        dv_setting_set "PANEL_COLOR" "green"
+                        dv_ok "Neon theme applied." ;;
+                    *) dv_info "Cancelled." ;;
+                esac
+                dv_pause ;;
             4)
                 printf 'Colors: black blue lightblue gray white green red yellow\n'
                 local col; dv_read col "Color: "

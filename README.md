@@ -323,8 +323,14 @@ See `LICENSE` for the full text.
 
 ## Repository
 
-This is the secondary repository. The primary repository is maintained at:
-https://github.com/brianlewislife-png
+Primary repository (conta principal):
+https://github.com/brianlewislife-png/distrovanta-universal-linux-terminal-customizer
+
+Secondary mirror:
+https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer
+
+Brasil edition:
+https://github.com/brianlewislife-png/distrovanta-universal-linux-terminal-customizeri-brasil
 
 ## Credits and Attribution
 
@@ -340,3 +346,60 @@ https://github.com/brianlewislife-png
 
 Redistribution and modification are allowed under GPL-3.0, provided original
 copyright and attribution notices are preserved. See `ATTRIBUTION.md`.
+
+---
+
+## Detalhes Técnicos (Mais Informações)
+
+### Fluxo de Personalização
+
+1. O usuário abre a ferramenta (`./distrovanta.sh`).
+2. Seleciona uma opção do menu principal.
+3. Informa os dados solicitados (nome, cor, texto, etc.).
+4. A ferramenta gera uma pré-visualização no terminal.
+5. O usuário escolhe `[01] CONFIRM` ou `[02] CANCEL`.
+6. Ao confirmar, as configurações são salvas em `config/settings.conf` e
+   aplicadas em `~/.bashrc` dentro de um bloco gerenciado.
+7. A personalização persiste em novas sessões do terminal.
+
+### Arquivos Modificados
+
+- `~/.bashrc` — recebe blocos marcados entre
+  `# >>> DISTROVANTA BEGIN >>>` e `# <<< DISTROVANTA END <<<`.
+- `~/.bash_profile` / `~/.profile` — garantem que o `.bashrc` seja carregado
+  em shells de login (sem sobrescrever configurações existentes).
+- `~/.distrovanta/` — diretório de estado (backups, logs).
+- `config/settings.conf` — configurações persistentes (key=value).
+
+### Restauração
+
+- Remove apenas os blocos gerenciados pela DISTROVANTA.
+- Restaura arquivos a partir de backups registrados.
+- Preserva configurações pessoais que não pertencem à ferramenta.
+
+### Compatibilidade
+
+- Bash: suporte completo.
+- Zsh/Fish: detectados, não modificados.
+- Termux/Android: detectado; funcionalidades Bash disponíveis se o Bash estiver
+  instalado.
+- Distribuições: Debian, Ubuntu, Linux Mint, Kali, Parrot, Fedora, Arch,
+  Manjaro (suporte Bash), Alpine (parcial).
+
+### Segurança
+
+- Sem `eval` de entrada do usuário.
+- Sem coleta ou envio de dados.
+- Sem alteração de usuário/hostname real.
+- Backup antes de qualquer modificação.
+- Validação de entradas e caminhos.
+
+### Testes Inclusos
+
+- `tests/run_tests.sh` — smoke tests.
+- `tests/test_prompt.sh` — construção do prompt.
+- `tests/test_backup_restore.sh` — backup e restauração.
+
+### Licença
+
+GNU General Public License v3.0 (GPL-3.0). Veja `LICENSE` e `ATTRIBUTION.md`.

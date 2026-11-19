@@ -321,11 +321,16 @@ distrovanta/
 This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
 See `LICENSE` for the full text.
 
+## Repository
+
+This is the secondary repository. The primary repository is maintained at:
+https://github.com/brianlewislife-png
+
 ## Credits and Attribution
 
 - **Original creator:** Brian Lewis
 - **Partner:** BRJ Dev
-- **Official GitHub:** https://github.com/brianlewis-png
+- **Official GitHub (primary):** https://github.com/brianlewislife-png
 - **Official Website:** https://brianlewisdev.netlify.app
 - **LinkedIn:** https://linkedin.com/in/brian-lewis-4ba63739a
 - **Telegram:** https://t.me/brianlewisdev

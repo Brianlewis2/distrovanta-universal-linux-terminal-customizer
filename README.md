@@ -1,5 +1,8 @@
 # DISTROVANTA
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/3fbefd59-55b8-4c80-bb79-7dbcd608e724" />
+
+
 ## Universal Linux Terminal Customizer
 
 DISTROVANTA is a modular, multi-distribution Linux terminal customization tool.

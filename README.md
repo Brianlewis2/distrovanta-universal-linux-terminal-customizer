@@ -1,5 +1,7 @@
 # DISTROVANTA
 
+blob:https://web.whatsapp.com/bb20931f-adf9-4415-a017-8529d1a4051f
+
 ## Universal Linux Terminal Customizer
 
 DISTROVANTA is a modular, multi-distribution Linux terminal customization tool.

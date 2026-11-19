@@ -29,7 +29,7 @@ dv_banner() {
     }
 
     printf "%*s\033[34m\033[1m%s\033[0m\n" "$margin" "" "$border"
-    _dv_banner_line "D I S T R O V A N T A" "94" 1
+    _dv_banner_line "DISTROVANTA" "94" 1
     _dv_banner_line "UNIVERSAL LINUX TERMINAL CUSTOMIZER" "97" 1
     printf "%*s\n" "$margin" ""
     _dv_banner_line "Created by Brian Lewis" "97" 0

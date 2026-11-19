@@ -116,7 +116,7 @@ No root privileges are required for common user personalization.
 ### Standard
 
 ```sh
-git clone https://github.com/brianlewis-png/distrovanta-universal-linux-terminal-customizer.git
+git clone https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer.git
 cd distrovanta-universal-linux-terminal-customizer
 chmod +x distrovanta.sh install.sh
 ./install.sh
@@ -127,7 +127,7 @@ chmod +x distrovanta.sh install.sh
 
 ```sh
 pkg install bash coreutils
-git clone https://github.com/brianlewis-png/distrovanta-universal-linux-terminal-customizer.git
+git clone https://github.com/Brianlewis2/distrovanta-universal-linux-terminal-customizer.git
 cd distrovanta-universal-linux-terminal-customizer
 chmod +x distrovanta.sh
 ./distrovanta.sh
